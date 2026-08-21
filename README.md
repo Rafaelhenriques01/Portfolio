@@ -1,57 +1,172 @@
-Markdown
-# 💻 Portfólio Profissional — João Prado Campos
+# 💻 Portfólio Profissional — Rafael Henriques Aquino Correa
 
-> Website de portfólio profissional moderno e responsivo desenvolvido para a disciplina de Laboratório de Desenvolvimento de Software (PUC Minas).
+> Website de portfólio profissional desenvolvido para apresentar minha trajetória acadêmica, experiências profissionais, projetos, habilidades técnicas e conhecimentos na área de Engenharia de Software.
 
 ---
 
 ## 📌 Descrição do Projeto
 
-Este projeto consiste em um website de portfólio pessoal interativo com o objetivo de apresentar minha trajetória acadêmica e profissional, habilidades técnicas, histórico de projetos e canais de contato de forma clara e acessível.
+Este projeto consiste em um website de portfólio pessoal, moderno e responsivo, desenvolvido com o objetivo de apresentar minha trajetória acadêmica e profissional, projetos desenvolvidos, habilidades técnicas e formas de contato.
 
-* **Objetivo:** Exibir perfil profissional, linha do tempo de projetos, histórico de experiências e disponibilizar canal direto de contato com formulário de envio por e-mail e links sociais.
-* **Público-alvo:** Recrutadores, desenvolvedores, professores e profissionais da área de tecnologia.
+O portfólio busca centralizar minhas principais experiências e projetos em um único espaço, facilitando o acesso de recrutadores, empresas, professores e profissionais da área de tecnologia.
+
+* **Objetivo:** Apresentar meu perfil profissional, experiências, habilidades técnicas, projetos acadêmicos e pessoais e disponibilizar meus canais de contato.
+* **Público-alvo:** Recrutadores, empresas, desenvolvedores, professores e profissionais da área de tecnologia.
+* **Área de atuação:** Engenharia de Software, Desenvolvimento Web, Banco de Dados, UI/UX e Automação.
 
 ---
 
 ## 📄 Seções da Aplicação
 
-O sistema conta com 4 páginas principais acessadas através do menu de navegação:
+O sistema conta com páginas acessíveis através de um menu de navegação:
 
-1. **Sobre Mim (`/`):** Breve apresentação em português e inglês, destacando formação, áreas de atuação (Engenharia de Software/Desenvolvimento), interesses e objetivos profissionais.
-2. **Projetos (`/projetos`):** Linha do tempo dinâmica dos projetos desenvolvidos, contendo nome, descrição, tecnologias utilizadas, link para repositório do GitHub e mídia interativa (imagens/GIFs).
-3. **Experiências (`/experiencias`):** Espaço estruturado relatando experiências profissionais, estágios, trabalhos freelance e participações em eventos técnicos.
-4. **Contato (`/contato`):** Página com ícones sociais clicáveis (E-mail, LinkedIn, GitHub, WhatsApp) e formulário interativo de mensagem com funcionalidade de envio direto por e-mail.
+1. **Sobre Mim (`/`):** Apresentação pessoal e profissional, formação em Engenharia de Software, áreas de interesse, habilidades e objetivos profissionais.
 
----
+2. **Projetos (`/projetos`):** Apresentação dos principais projetos acadêmicos e pessoais desenvolvidos, incluindo descrição, tecnologias utilizadas, funcionalidades e links para os respectivos repositórios.
 
-## 🛠️ Tecnologias e Dependências
+3. **Experiências (`/experiencias`):** Histórico das minhas experiências na Empresa Júnior COMP e na Gerência de Tecnologia da Informação (GTI) da PUC Minas.
 
-### Core & Frameworks
-* **React.js** (v18+) - Biblioteca principal para construção da interface de usuário.
-* **Vite** - Build tool e ambiente de desenvolvimento rápido.
-* **JavaScript (ES6+)** - Linguagem base do projeto.
-
-### Dependências & Bibliotecas
-* **`react-router-dom`** - Gerenciamento de rotas e navegação client-side SPA.
-* **`lucide-react`** - Conjunto de ícones para componentes e botões de contato.
-
-### Ferramentas de Design & Versionamento
-* **Figma** - Prototipação de média/alta fidelidade da interface.
-* **Git & GitHub** - Controle de versão e hospedagem do código-fonte.
-* **ESLint** - Padronização e qualidade de código.
+4. **Contato (`/contato`):** Página destinada ao contato profissional, contendo links para LinkedIn, GitHub, e-mail e outros canais de comunicação.
 
 ---
 
-## 🎨 Protótipos (Wireframes & UI Design)
+## 👨‍💻 Sobre Mim
 
-> 🔗 **Link do Figma:** [Clique aqui para acessar o protótipo no Figma](https://www.figma.com) *(Substitua pelo seu link do Figma)*
+Sou estudante de **Engenharia de Software na PUC Minas**, com interesse em desenvolvimento de sistemas, desenvolvimento web, bancos de dados, UI/UX e automação.
 
-### Layouts das Telas
-![Wireframe / Protótipo - Sobre Mim](./src/assets/prototipo-sobre-mim.png)
-![Wireframe / Protótipo - Projetos](./src/assets/prototipo-projetos.png)
-![Wireframe / Protótipo - Experiências](./src/assets/prototipo-experiencias.png)
-![Wireframe / Protótipo - Contato](./src/assets/prototipo-contato.png)
+Durante minha trajetória acadêmica, participei de projetos utilizando metodologias ágeis, desenvolvimento de interfaces, levantamento de requisitos e construção de soluções de software.
+
+Também tive experiência profissional na **Empresa Júnior COMP**, atuando em projetos e UI/UX Design, e na **Gerência de Tecnologia da Informação (GTI) da PUC Minas**, como estagiário de desenvolvimento.
+
+Busco constantemente ampliar meus conhecimentos e adquirir novas experiências profissionais, contribuindo para o desenvolvimento de soluções tecnológicas de qualidade.
+
+---
+
+## 🛠️ Tecnologias e Habilidades
+
+### 💻 Desenvolvimento
+
+* HTML5
+* CSS3
+* JavaScript
+* C#
+* Python
+* C/C++
+* TypeScript
+* Node.js
+
+### 🗄️ Banco de Dados
+
+* MySQL
+* Banco de Dados Relacional
+* Modelagem de Dados
+* SQL
+* CRUD
+* APIs REST
+
+### 🎨 Design e UI/UX
+
+* Figma
+* Wireframes
+* Protótipos
+* UI/UX Design
+* Design de interfaces
+* Experiência do usuário
+
+### ⚙️ Ferramentas e Metodologias
+
+* Git
+* GitHub
+* Scrum
+* Kanban
+* n8n
+* VS Code
+* NetBeans
+
+---
+
+## 💼 Experiência Profissional
+
+### 🏢 GTI – Gerência de Tecnologia da Informação | PUC Minas
+
+**Estagiário de Desenvolvimento — 2026**
+
+Atuação no desenvolvimento e manutenção de soluções internas da instituição.
+
+Principais atividades:
+
+* Desenvolvimento e manutenção de páginas utilizando ASCX, HTML, CSS e JavaScript;
+* Apoio ao desenvolvimento de funcionalidades em C#;
+* Manipulação de bancos de dados MySQL;
+* Criação e manutenção de relatórios;
+* Correção de problemas e suporte a sistemas internos.
+
+---
+
+### 🚀 COMP – Empresa Júnior PUC Minas
+
+**Membro de Projetos e UI/UX Designer — 2026**
+
+Participação em projetos de desenvolvimento de software e design de interfaces.
+
+Principais atividades:
+
+* Criação de wireframes e protótipos utilizando Figma;
+* Participação em projetos utilizando Scrum e Kanban;
+* Levantamento e análise de requisitos;
+* Aplicação de conceitos de UI/UX;
+* Colaboração com equipes multidisciplinares;
+* Apoio no desenvolvimento de soluções;
+* Resolução de problemas durante o desenvolvimento dos projetos.
+
+---
+
+## 🚀 Projetos
+
+### 🎥 Resumidor de Vídeos
+
+Aplicação desenvolvida para geração automática de resumos de vídeos.
+
+* **Backend:** Python
+* **Interface:** TypeScript
+* **Objetivo:** Facilitar o consumo e a compreensão de conteúdos em vídeo através da geração automática de resumos.
+
+---
+
+### 🎓 Assistente Acadêmico
+
+Aplicação web desenvolvida para auxiliar estudantes na organização de atividades acadêmicas.
+
+* **Tecnologia principal:** TypeScript
+* **Objetivo:** Auxiliar estudantes na organização e gerenciamento de suas atividades acadêmicas.
+
+---
+
+### 🔐 Sistema de Login com API REST
+
+Sistema desenvolvido com funcionalidades de autenticação e gerenciamento de usuários.
+
+* **Funcionalidades:** Login, cadastro, autenticação e CRUD.
+* **Tecnologias:** HTML, CSS, JavaScript e API REST.
+
+---
+
+### 🍴 Diretório de Receitas
+
+Aplicação web desenvolvida para disponibilizar e organizar receitas através da integração entre frontend e backend.
+
+* **Funcionalidades:** Consulta e organização de receitas.
+* **Tecnologias:** Frontend + Backend + API.
+
+---
+
+## 🎨 Protótipos e UI/UX
+
+Os protótipos e interfaces do portfólio e de outros projetos são desenvolvidos utilizando o **Figma**, buscando aplicar princípios de usabilidade, organização visual e experiência do usuário.
+
+### 🔗 Figma
+
+> Adicione aqui o link do seu projeto no Figma.
 
 ---
 
@@ -62,54 +177,22 @@ portfolio/
 ├── public/
 │   └── favicon.ico
 ├── src/
-│   ├── assets/           # Imagens, GIFs e logotipos
-│   ├── components/       # Componentes reutilizáveis (Navbar, Footer, Cards, etc.)
+│   ├── assets/              # Imagens, ícones e outros recursos
+│   ├── components/          # Componentes reutilizáveis
 │   │   ├── Navbar.jsx
 │   │   └── Footer.jsx
-│   ├── pages/            # Páginas da aplicação
-│   │   ├── Home.jsx        # Página Sobre Mim (PT/EN)
-│   │   ├── Projects.jsx    # Página de Projetos (Timeline)
-│   │   ├── Experience.jsx  # Página de Experiências
-│   │   └── Contact.jsx     # Página de Contato + Formulário
-│   ├── App.jsx           # Componente raiz com layout base
-│   ├── main.jsx          # Ponto de entrada do React
-│   ├── routes.jsx        # Configuração centralizada de rotas
-│   └── index.css         # Estilos globais e resets CSS
+│   ├── pages/               # Páginas da aplicação
+│   │   ├── Home.jsx         # Página inicial / Sobre Mim
+│   │   ├── Projects.jsx     # Página de Projetos
+│   │   ├── Experience.jsx   # Página de Experiências
+│   │   └── Contact.jsx      # Página de Contato
+│   ├── App.jsx              # Componente principal
+│   ├── main.jsx             # Ponto de entrada da aplicação
+│   ├── routes.jsx           # Configuração das rotas
+│   └── index.css            # Estilos globais
 ├── .gitignore
 ├── eslint.config.js
 ├── index.html
 ├── package.json
 ├── README.md
 └── vite.config.js
-🚀 Como Executar o Projeto Localmente
-Pré-requisitos
-Node.js (versão 18 ou superior)
-
-npm ou yarn instalado
-
-Passo a passo
-Clonar o repositório:
-
-Bash
-git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
-Acessar a pasta do projeto:
-
-Bash
-cd NOME_DO_REPOSITORIO
-Instalar as dependências:
-
-Bash
-npm install
-Iniciar o servidor de desenvolvimento:
-
-Bash
-npm run dev
-Abra o navegador e acesse a URL exibida no terminal (geralmente http://localhost:5173).
-
-🌐 Hospedagem na Nuvem
-Link de Acesso (Produção): https://seu-portfolio.vercel.app (Em breve / A ser atualizado na Sprint 03)
-
-👤 Autor
-João Prado Campos
-
-Estudante de Engenharia de Software — PUC Minas
