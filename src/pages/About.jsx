@@ -87,9 +87,11 @@ export default function About() {
               {tr(about.paragraphs).map((paragraph) => (
                 <p key={paragraph.slice(0, 24)}>{paragraph}</p>
               ))}
-              <a className="btn btn--outline btn--sm about__resume" href={profile.resume} download>
-                {t('hero.resume')}
-              </a>
+              {profile.resume && (
+                <a className="btn btn--outline btn--sm about__resume" href={profile.resume} download>
+                  {t('hero.resume')}
+                </a>
+              )}
             </Reveal>
 
             <div className="about__cards">

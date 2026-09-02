@@ -29,18 +29,25 @@ export const profile = {
   university: 'PUC Minas',
 
   // ---------------------------------------------------------------------
-  // CONTATO — confira/atualize os links abaixo com os seus perfis reais
+  // CONTATO
   // ---------------------------------------------------------------------
   email: '7591rafa@gmail.com',
-  phone: '+55 31 99999-9999',        // TODO: coloque seu telefone real
-  whatsapp: '5531999999999',          // TODO: numero do WhatsApp (so digitos, com DDI+DDD)
+  phone: '+55 (31) 99830-0733',
+  whatsapp: '5531998300733', // so digitos, com DDI + DDD (usado no link wa.me)
+
   github: 'https://github.com/Rafaelhenriques01',
-  linkedin: 'https://www.linkedin.com/in/rafael-henriques-aquino-correa/', // TODO: confirme a URL
-  instagram: 'https://www.instagram.com/',                                 // TODO: confirme a URL
+  githubHandle: 'Rafaelhenriques01',
+
+  linkedin: 'https://www.linkedin.com/in/rafael-henriques-691446338',
+  linkedinHandle: 'in/rafael-henriques',
+
+  instagram: 'https://www.instagram.com/rafaelhenriques_22/',
+  instagramHandle: '@rafaelhenriques_22',
   figma: 'https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Untitled',
 
-  // Curriculo em PDF: coloque o arquivo em /public/curriculo.pdf
-  resume: '/curriculo.pdf',
+  // Curriculo em PDF: salve o arquivo como /public/curriculo.pdf e descomente a
+  // linha abaixo. Enquanto estiver null, o botao 'Baixar Curriculo' fica oculto.
+  resume: null, // '/curriculo.pdf'
 }
 
 export const about = {

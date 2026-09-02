@@ -323,7 +323,7 @@ da imagem em `src/pages/About.jsx`.
 **Rafael Henriques Aquino Correa**
 Estudante de Engenharia de Software — PUC Minas
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-henriques-aquino-correa/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-henriques-691446338)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Rafaelhenriques01)
 [![E-mail](https://img.shields.io/badge/E--mail-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:7591rafa@gmail.com)
 
