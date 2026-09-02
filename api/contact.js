@@ -75,41 +75,83 @@ export default async function handler(request, response) {
     return response.status(400).json({ ok: false, error: 'Dados inválidos.', fields: errors })
   }
 
-  const apiKey = process.env.RESEND_API_KEY
   const to = process.env.CONTACT_TO_EMAIL
-  const from = process.env.CONTACT_FROM_EMAIL || 'Portfolio <onboarding@resend.dev>'
 
-  if (!apiKey || !to) {
-    console.error('[api/contact] RESEND_API_KEY ou CONTACT_TO_EMAIL nao configurados.')
+  if (!to) {
+    console.error('[api/contact] CONTACT_TO_EMAIL nao configurado.')
     return response.status(503).json({ ok: false, error: 'Serviço de e-mail não configurado.' })
   }
 
   try {
-    const resendResponse = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        from,
-        to: [to],
-        reply_to: data.email,
-        subject: `[Portfólio] Nova mensagem de ${data.name}`,
-        html: buildHtml(data),
-        text: `Nome: ${data.name}\nE-mail: ${data.email}\nTelefone: ${data.phone}\n\n${data.message}`,
-      }),
-    })
-
-    if (!resendResponse.ok) {
-      const detail = await resendResponse.text()
-      console.error('[api/contact] Resend respondeu com erro:', resendResponse.status, detail)
-      return response.status(502).json({ ok: false, error: 'Não foi possível enviar o e-mail.' })
+    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+      await enviarPorSmtp(data, to)
+    } else if (process.env.RESEND_API_KEY) {
+      await enviarPorResend(data, to)
+    } else {
+      console.error('[api/contact] nenhum provedor de e-mail configurado.')
+      return response.status(503).json({ ok: false, error: 'Serviço de e-mail não configurado.' })
     }
 
     return response.status(200).json({ ok: true })
   } catch (error) {
-    console.error('[api/contact] Erro inesperado:', error)
-    return response.status(500).json({ ok: false, error: 'Erro interno ao enviar a mensagem.' })
+    console.error('[api/contact] falha no envio:', error)
+    return response.status(502).json({ ok: false, error: 'Não foi possível enviar o e-mail.' })
+  }
+}
+
+/**
+ * Envio por SMTP (Gmail com "Senha de app", ou qualquer outro servidor).
+ * Variaveis: SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
+ */
+async function enviarPorSmtp(data, to) {
+  const { default: nodemailer } = await import('nodemailer')
+
+  const port = Number(process.env.SMTP_PORT || 465)
+  const transporte = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port,
+    secure: port === 465,
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+  })
+
+  await transporte.sendMail({
+    // O Gmail exige que o remetente seja a propria conta autenticada
+    from: `"Portfólio" <${process.env.SMTP_USER}>`,
+    to,
+    replyTo: `"${data.name}" <${data.email}>`,
+    subject: `[Portfólio] Nova mensagem de ${data.name}`,
+    html: buildHtml(data),
+    text: `Nome: ${data.name}
+E-mail: ${data.email}
+Telefone: ${data.phone}
+
+${data.message}`,
+  })
+}
+
+/** Envio pela API do Resend. Variaveis: RESEND_API_KEY, CONTACT_FROM_EMAIL */
+async function enviarPorResend(data, to) {
+  const resposta = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: process.env.CONTACT_FROM_EMAIL || 'Portfolio <onboarding@resend.dev>',
+      to: [to],
+      reply_to: data.email,
+      subject: `[Portfólio] Nova mensagem de ${data.name}`,
+      html: buildHtml(data),
+      text: `Nome: ${data.name}
+E-mail: ${data.email}
+Telefone: ${data.phone}
+
+${data.message}`,
+    }),
+  })
+
+  if (!resposta.ok) {
+    throw new Error(`Resend respondeu ${resposta.status}: ${await resposta.text()}`)
   }
 }

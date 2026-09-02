@@ -94,7 +94,7 @@ visual do site (tema escuro, tipografia monoespaçada e verde como cor de destaq
 | Tecnologia | Para que serve |
 | ---------- | -------------- |
 | **Vercel Serverless Functions** (Node.js) | Endpoint `POST /api/contact` que recebe o formulário |
-| [**Resend API**](https://resend.com/) | Serviço de envio de e-mail (plano gratuito) |
+| [**Nodemailer**](https://nodemailer.com/) | Envio de e-mail por SMTP (Gmail com Senha de app) |
 
 ### Ferramentas de desenvolvimento
 
@@ -117,7 +117,8 @@ visual do site (tema escuro, tipografia monoespaçada e verde como cor de destaq
 "react-dom": "^18.3.1",
 "react-router-dom": "^6.28.0",
 "framer-motion": "^11.15.0",
-"react-icons": "^5.4.0"
+"react-icons": "^5.4.0",
+"nodemailer": "^6.10.1"
 ```
 
 **Dependências de desenvolvimento** (`devDependencies`):
@@ -249,21 +250,30 @@ O site abre automaticamente em **http://localhost:5173**.
 ## ✉️ Formulário de contato (back-end)
 
 O formulário envia os dados para a Serverless Function `POST /api/contact`, que valida as
-informações no servidor e dispara o e-mail pela API do **Resend**.
+informações no servidor e dispara o e-mail por **SMTP (Nodemailer)**.
 
 ### Como configurar
 
-1. Crie uma conta gratuita em **https://resend.com** e gere uma **API Key**.
-2. Preencha as variáveis de ambiente (arquivo `.env` local e/ou painel da Vercel):
+1. Ative a **verificação em 2 etapas** na sua Conta Google.
+2. Gere uma **Senha de app** em https://myaccount.google.com/apppasswords (16 caracteres).
+3. Crie o arquivo `.env` na raiz do projeto (use o `.env.example` como modelo):
 
    | Variável | Descrição | Exemplo |
    | -------- | --------- | ------- |
-   | `RESEND_API_KEY` | Chave da API do Resend | `re_123abc...` |
    | `CONTACT_TO_EMAIL` | E-mail que **recebe** as mensagens | `7591rafa@gmail.com` |
-   | `CONTACT_FROM_EMAIL` | Remetente | `Portfolio <onboarding@resend.dev>` |
+   | `SMTP_HOST` | Servidor SMTP | `smtp.gmail.com` |
+   | `SMTP_PORT` | Porta (465 = SSL) | `465` |
+   | `SMTP_USER` | Conta que envia | `7591rafa@gmail.com` |
+   | `SMTP_PASS` | Senha de app gerada no passo 2 | `abcd efgh ijkl mnop` |
 
-3. Pronto: o formulário passa a enviar e-mails de verdade, tanto local (`npm run dev`)
-   quanto em produção.
+4. Pronto: o formulário passa a enviar e-mails de verdade, tanto local (`npm run dev`)
+   quanto em produção (as mesmas variáveis vão no painel da Vercel).
+
+O e-mail chega com o endereço do visitante no **Responder para**, então basta clicar em
+"Responder" para falar direto com quem escreveu.
+
+> **Alternativa:** a função também aceita a API do [Resend](https://resend.com/).
+> Basta preencher `RESEND_API_KEY` e deixar `SMTP_USER`/`SMTP_PASS` vazios.
 
 > 💡 Se as variáveis não estiverem configuradas, o site continua funcionando normalmente:
 > o formulário exibe uma mensagem de erro amigável com um link alternativo que abre o
@@ -282,7 +292,7 @@ e-mail em formato válido e mensagem com no mínimo 10 caracteres.
    - **Framework Preset:** Vite
    - **Build Command:** `npm run build`
    - **Output Directory:** `dist`
-4. Em **Environment Variables**, adicione `RESEND_API_KEY`, `CONTACT_TO_EMAIL` e `CONTACT_FROM_EMAIL`.
+4. Em **Environment Variables**, adicione `CONTACT_TO_EMAIL`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER` e `SMTP_PASS`.
 5. Clique em **Deploy**. Ao final, copie a URL gerada e cole no topo deste README.
 
 > A pasta `api/` é publicada automaticamente como Serverless Function, e o arquivo

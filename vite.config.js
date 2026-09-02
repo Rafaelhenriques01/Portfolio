@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 
 /**
@@ -39,15 +39,21 @@ function localApiPlugin() {
 }
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), localApiPlugin()],
-  server: {
-    port: 5173,
-    open: true,
-  },
-  build: {
-    outDir: 'dist',
-    sourcemap: false,
-    chunkSizeWarningLimit: 900,
-  },
+export default defineConfig(({ mode }) => {
+  // Carrega o .env para dentro de process.env: em producao a Vercel ja faz isso,
+  // mas no ambiente local a Serverless Function precisa enxergar as variaveis.
+  Object.assign(process.env, loadEnv(mode, process.cwd(), ''))
+
+  return {
+    plugins: [react(), localApiPlugin()],
+    server: {
+      port: 5173,
+      open: true,
+    },
+    build: {
+      outDir: 'dist',
+      sourcemap: false,
+      chunkSizeWarningLimit: 900,
+    },
+  }
 })
