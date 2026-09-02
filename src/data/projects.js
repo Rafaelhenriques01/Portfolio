@@ -91,8 +91,8 @@ export const projects = [
     date: '2026-05',
     highlight: true,
     description: {
-      pt: 'Aplicação web criada para ajudar estudantes a organizar suas atividades acadêmicas: disciplinas, prazos de entrega, provas e anotações. Desenvolvida em TypeScript, com foco em usabilidade e organização visual das informações.',
-      en: 'Web application built to help students organize their academic activities: courses, deadlines, exams and notes. Developed in TypeScript, focused on usability and clear visual organization of information.',
+      pt: 'Aplicação web criada para ajudar estudantes a organizar suas atividades acadêmicas: disciplinas, prazos de entrega, provas e anotações. Desenvolvida em TypeScript, com foco em usabilidade e organização visual das informações. Desenvolvido em dupla com Luiz Henrique Horta Oliveira.',
+      en: 'Web application built to help students organize their academic activities: courses, deadlines, exams and notes. Developed in TypeScript, focused on usability and clear visual organization of information. Built in a pair with Luiz Henrique Horta Oliveira.',
     },
     features: {
       pt: ['Cadastro de disciplinas e atividades', 'Controle de prazos e entregas', 'Painel com visão geral do semestre', 'Interface responsiva'],
@@ -110,8 +110,8 @@ export const projects = [
     date: '2026-05',
     highlight: true,
     description: {
-      pt: 'ERP web e mobile para empresas de manutenção industrial, que centraliza toda a gestão operacional em uma única plataforma. O sistema cobre o fluxo completo da empresa: do cadastro de clientes e da elaboração de orçamentos até a execução dos serviços em campo, controle de estoque, relatórios técnicos e gestão financeira. Foi concebido com foco em produtividade, digitalização de processos e funcionamento offline para as equipes em campo, sincronizando os dados automaticamente quando há conexão.',
-      en: 'Web and mobile ERP for industrial maintenance companies, centralizing the whole operation in a single platform. The system covers the complete business flow: from client registration and quotations to field service execution, inventory control, technical reports and financial management. It was designed around productivity, process digitalization and offline operation for field teams, syncing data automatically once a connection is available.',
+      pt: 'ERP web e mobile para empresas de manutenção industrial, que centraliza toda a gestão operacional em uma única plataforma. O sistema cobre o fluxo completo da empresa: do cadastro de clientes e da elaboração de orçamentos até a execução dos serviços em campo, controle de estoque, relatórios técnicos e gestão financeira. Foi concebido com foco em produtividade, digitalização de processos e funcionamento offline para as equipes em campo, sincronizando os dados automaticamente quando há conexão. Desenvolvido em dupla com Luiz Henrique Horta Oliveira.',
+      en: 'Web and mobile ERP for industrial maintenance companies, centralizing the whole operation in a single platform. The system covers the complete business flow: from client registration and quotations to field service execution, inventory control, technical reports and financial management. It was designed around productivity, process digitalization and offline operation for field teams, syncing data automatically once a connection is available. Built in a pair with Luiz Henrique Horta Oliveira.',
     },
     features: {
       pt: [
