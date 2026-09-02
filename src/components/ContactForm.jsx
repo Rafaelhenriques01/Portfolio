@@ -8,6 +8,35 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 
 const initialValues = { name: '', email: '', phone: '', message: '' }
 
+/**
+ * Formata o telefone enquanto a pessoa digita: (31) 99830-0733.
+ * Aceita ate 11 digitos e descarta o DDI 55 quando alguem cola o numero completo.
+ */
+function mascaraTelefone(valor) {
+  let d = valor.replace(/\D/g, '')
+  if (d.length > 11 && d.startsWith('55')) d = d.slice(2)
+  d = d.slice(0, 11)
+
+  if (d.length === 0) return ''
+  if (d.length <= 2) return `(${d}`
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`
+}
+
+/**
+ * E-mail nao tem formato fixo, entao nao existe mascara como a do telefone.
+ * O que da para fazer e impedir o que nunca e valido: espacos, letras
+ * maiusculas, acentos e caracteres fora do padrao de endereco.
+ */
+function mascaraEmail(valor) {
+  return valor
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9@._%+-]/g, '')
+}
+
 export default function ContactForm() {
   const { t } = useLanguage()
   const [values, setValues] = useState(initialValues)
@@ -23,6 +52,9 @@ export default function ContactForm() {
     if (!data.email.trim()) found.email = t('contact.errors.emailRequired')
     else if (!EMAIL_REGEX.test(data.email.trim())) found.email = t('contact.errors.emailInvalid')
 
+    const digitos = data.phone.replace(/\D/g, '')
+    if (digitos.length > 0 && digitos.length < 10) found.phone = t('contact.errors.phoneInvalid')
+
     if (!data.message.trim()) found.message = t('contact.errors.messageRequired')
     else if (data.message.trim().length < 10) found.message = t('contact.errors.messageShort')
 
@@ -31,7 +63,9 @@ export default function ContactForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target
-    setValues((current) => ({ ...current, [name]: value }))
+    const formatado = name === 'phone' ? mascaraTelefone(value) : name === 'email' ? mascaraEmail(value) : value
+
+    setValues((current) => ({ ...current, [name]: formatado }))
     if (errors[name]) setErrors((current) => ({ ...current, [name]: undefined }))
   }
 
@@ -113,6 +147,10 @@ export default function ContactForm() {
           aria-invalid={Boolean(errors.email)}
           aria-describedby={errors.email ? 'email-error' : undefined}
           autoComplete="email"
+          inputMode="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
           required
         />
         {errors.email && (
@@ -128,11 +166,22 @@ export default function ContactForm() {
           id="phone"
           name="phone"
           type="tel"
+          inputMode="numeric"
           value={values.phone}
           onChange={handleChange}
+          onBlur={handleBlur}
           placeholder={t('contact.phonePlaceholder')}
+          className={errors.phone ? 'has-error' : ''}
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? 'phone-error' : undefined}
           autoComplete="tel"
+          maxLength={15}
         />
+        {errors.phone && (
+          <span className="form__error" id="phone-error" role="alert">
+            {errors.phone}
+          </span>
+        )}
       </div>
 
       <div className="form__field">
