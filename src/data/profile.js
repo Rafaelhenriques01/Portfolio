@@ -28,6 +28,13 @@ export const profile = {
 
   university: 'PUC Minas',
 
+  // Foto de perfil ja recortada em quadrado (ver scripts/recortar-foto.mjs).
+  // Se o arquivo nao existir, o site volta sozinho para o avatar ilustrado.
+  photo: '/images/foto-perfil.png',
+  // Ajuste fino do enquadramento no circulo: '50% 50%' e o centro,
+  // '50% 20%' sobe a foto (util quando o rosto fica na parte de cima).
+  photoPosition: '50% 50%',
+
   // ---------------------------------------------------------------------
   // CONTATO
   // ---------------------------------------------------------------------

@@ -149,11 +149,15 @@ Portfolio/
 │   └── contact.js                  # BACK-END: Serverless Function de envio de e-mail
 ├── docs/
 │   └── prototipos/                 # Imagens dos protótipos do Figma
+├── scripts/
+│   └── recortar-foto.mjs           # Ferramenta de recorte de imagem (sem dependências)
 ├── public/
 │   ├── favicon.svg
 │   └── images/                     # Imagens dos projetos e logos
 │       ├── avatar.svg
-│       ├── projeto-*.svg           # Telas dos projetos
+│       ├── foto-perfil.png        # Foto de perfil (recortada)
+│       ├── tubify-*.png           # Telas reais do projeto Tubify
+│       ├── projeto-*.svg           # Telas dos demais projetos
 │       ├── logo-puc-minas.png      # Logo oficial da PUC Minas
 │       └── logo-comp.svg           # Logo oficial do COMP (Empresa Júnior)
 ├── src/

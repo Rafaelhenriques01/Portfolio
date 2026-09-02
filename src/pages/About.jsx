@@ -9,6 +9,8 @@ import PageTransition from '../components/PageTransition'
 import Reveal from '../components/Reveal'
 import './About.css'
 
+const FALLBACK_AVATAR = '/images/avatar.svg'
+
 const skillIcons = { code: FaCode, database: FaDatabase, design: FaPenRuler, tools: FaGears }
 
 export default function About() {
@@ -51,12 +53,21 @@ export default function About() {
 
           <Reveal className="hero__figure" direction="left" delay={0.15}>
             <div className="hero__avatar-glow" aria-hidden="true" />
+            <div className="hero__avatar-ring" aria-hidden="true" />
             <img
-              src="/images/avatar.svg"
+              src={profile.photo ?? FALLBACK_AVATAR}
               alt={`${profile.name} — ${tr(profile.role)}`}
               className="hero__avatar"
+              style={{ objectPosition: profile.photoPosition }}
               width="380"
               height="380"
+              onError={(event) => {
+                // Enquanto a foto real nao existir, volta para o avatar ilustrado
+                if (event.currentTarget.dataset.fallback) return
+                event.currentTarget.dataset.fallback = 'true'
+                event.currentTarget.src = FALLBACK_AVATAR
+                event.currentTarget.classList.add('is-placeholder')
+              }}
             />
           </Reveal>
         </div>
