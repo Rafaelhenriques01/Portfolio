@@ -103,6 +103,17 @@ export default function ProjectModal({ project, onClose }) {
               ))}
             </ul>
 
+            {project.role && (
+              <>
+                <h3 className="modal__subtitle">{t('projects.role')}</h3>
+                <ul className="modal__features">
+                  {tr(project.role).map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+
             <h3 className="modal__subtitle">{t('projects.technologies')}</h3>
             <ul className="modal__tech">
               {project.tech.map((tech) => (
