@@ -83,7 +83,7 @@ export const translations = {
       },
     },
     footer: {
-      backToTop: 'Voltar ao topo',
+      rights: 'Todos os direitos reservados.',
       social: 'Redes',
     },
     notFound: {
@@ -169,7 +169,7 @@ export const translations = {
       },
     },
     footer: {
-      backToTop: 'Back to top',
+      rights: 'All rights reserved.',
       social: 'Social',
     },
     notFound: {

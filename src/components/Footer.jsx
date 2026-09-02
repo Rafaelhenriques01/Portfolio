@@ -1,4 +1,3 @@
-import { HiArrowUp } from 'react-icons/hi2'
 import { useLanguage } from '../context/LanguageContext'
 import SocialLinks from './SocialLinks'
 import { profile } from '../data/profile'
@@ -6,8 +5,7 @@ import './Footer.css'
 
 export default function Footer() {
   const { t, tr } = useLanguage()
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+  const year = new Date().getFullYear()
 
   return (
     <footer className="footer">
@@ -24,9 +22,9 @@ export default function Footer() {
       </div>
 
       <div className="footer__bottom container">
-        <button type="button" className="footer__top" onClick={scrollToTop} aria-label={t('footer.backToTop')}>
-          <HiArrowUp size={18} aria-hidden="true" />
-        </button>
+        <p>
+          © {year} {profile.name}. {t('footer.rights')}
+        </p>
       </div>
     </footer>
   )
