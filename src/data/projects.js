@@ -82,7 +82,6 @@ export const projects = [
       '/images/tubify-2-resumo.png',
       '/images/tubify-3-dashboard.png',
       '/images/tubify-4-login.png',
-      '/images/tubify-5-mobile.png',
     ],
   },
   {

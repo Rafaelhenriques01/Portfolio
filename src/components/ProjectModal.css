@@ -50,6 +50,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  /* prints de pagina inteira sao altos: enquadra pelo topo */
+  object-position: top center;
 }
 
 .modal__nav {
