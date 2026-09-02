@@ -36,7 +36,13 @@ export const experiences = [
       ],
     },
     tech: ['C#', 'ASCX', 'HTML5', 'CSS3', 'JavaScript', 'MySQL'],
-    image: '/images/exp-gti.svg',
+    logo: {
+      src: '/images/logo-puc-minas.png',
+      alt: 'PUC Minas',
+      invert: true,
+      scale: 0.66,
+      tint: '34, 197, 94',
+    },
   },
   {
     id: 'comp-ej',
@@ -70,7 +76,14 @@ export const experiences = [
       ],
     },
     tech: ['Figma', 'UI/UX', 'Scrum', 'Kanban', 'Prototipagem'],
-    image: '/images/exp-comp.svg',
+    logo: {
+      src: '/images/logo-comp.svg',
+      alt: 'COMP — Empresa Júnior',
+      invert: false,
+      rounded: true,
+      scale: 0.58,
+      tint: '7, 74, 255',
+    },
   },
   {
     id: 'puc-academico',
@@ -100,6 +113,12 @@ export const experiences = [
       ],
     },
     tech: ['Java', 'Python', 'C/C++', 'MySQL', 'Git'],
-    image: '/images/exp-puc.svg',
+    logo: {
+      src: '/images/logo-puc-minas.png',
+      alt: 'PUC Minas',
+      invert: true,
+      scale: 0.66,
+      tint: '34, 197, 94',
+    },
   },
 ]

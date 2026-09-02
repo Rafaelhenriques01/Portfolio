@@ -1,0 +1,77 @@
+.logo-panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 240px;
+  padding: var(--space-6);
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, rgba(var(--tint), 0.10), transparent 60%),
+    var(--bg-alt);
+}
+
+/* Brilho suave atras da logo, na cor da marca */
+.logo-panel__glow {
+  position: absolute;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--tint), 0.30), transparent 68%);
+  filter: blur(30px);
+  transition: transform var(--transition-slow), opacity var(--transition-slow);
+}
+
+.logo-panel__frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(190px, 62%);
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+/* Recorte circular para logos que ja sao redondas (ex: avatar do Instagram) */
+.logo-panel__frame.is-rounded {
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.logo-panel__img {
+  width: calc(var(--scale) * 100%);
+  height: auto;
+  object-fit: contain;
+  transition: transform var(--transition);
+}
+
+.logo-panel__frame.is-rounded .logo-panel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Compensa a margem em volta do circulo em prints de perfil */
+  transform: scale(1.02);
+}
+
+/* Logos pretas (arte oficial em preto sobre fundo transparente) viram brancas */
+.logo-panel__img.is-inverted { filter: invert(1); }
+
+.logo-panel__fallback {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+/* Reacao ao passar o mouse no cartao da experiencia */
+.experience__card:hover .logo-panel__frame { transform: scale(1.04); border-color: rgba(var(--tint), 0.45); }
+.experience__card:hover .logo-panel__glow { transform: scale(1.12); opacity: 1; }
+
+@media (max-width: 860px) {
+  .logo-panel { min-height: 190px; }
+  .logo-panel__frame { width: min(150px, 45%); }
+}

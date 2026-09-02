@@ -41,7 +41,7 @@ de contato — tudo centralizado em um único lugar, com versões em **portuguê
 | ----- | ---- | --------- |
 | **Sobre Mim** | `/` | Apresentação com **versões em PT e EN** (troca instantânea no menu), formação, áreas de interesse, objetivos profissionais e habilidades técnicas agrupadas por categoria. |
 | **Projetos** | `/projetos` | **Linha do tempo dinâmica** do projeto mais antigo ao mais recente, com filtro por tecnologia, imagens de cada projeto, tecnologias utilizadas, link do repositório no GitHub e **modal com galeria/carrossel** de telas. |
-| **Experiências** | `/experiencias` | Empresa/instituição, cargo, período e descrição, com bloco expansível ("Saiba Mais") contendo as principais atividades e tecnologias. |
+| **Experiências** | `/experiencias` | **Logo oficial da instituição**, cargo, período e descrição, com bloco expansível ("Saiba Mais") contendo as principais atividades e tecnologias. |
 | **Contato** | `/contato` | Ícones clicáveis (e-mail, WhatsApp, LinkedIn, GitHub, Instagram), botão de copiar contato e **formulário funcional** (nome, e-mail, telefone e mensagem) com **envio real de e-mail** via Serverless Function. |
 
 **Recursos transversais:**
@@ -151,12 +151,14 @@ Portfolio/
 │   └── prototipos/                 # Imagens dos protótipos do Figma
 ├── public/
 │   ├── favicon.svg
-│   └── images/                     # Imagens dos projetos e experiências
+│   └── images/                     # Imagens dos projetos e logos
 │       ├── avatar.svg
-│       ├── projeto-*.svg
-│       └── exp-*.svg
+│       ├── projeto-*.svg           # Telas dos projetos
+│       ├── logo-puc-minas.png      # Logo oficial da PUC Minas
+│       └── logo-comp.svg           # Logo oficial do COMP (Empresa Júnior)
 ├── src/
 │   ├── components/                 # Componentes reutilizáveis
+│   │   ├── CompanyLogo.jsx/.css    # Painel com a logo da empresa
 │   │   ├── ContactForm.jsx/.css    # Formulário com validação e envio
 │   │   ├── Footer.jsx/.css         # Rodapé
 │   │   ├── Layout.jsx              # Cabeçalho + conteúdo + rodapé

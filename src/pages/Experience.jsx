@@ -6,6 +6,7 @@ import { experiences } from '../data/experiences'
 import PageTransition from '../components/PageTransition'
 import SectionHeader from '../components/SectionHeader'
 import Reveal from '../components/Reveal'
+import CompanyLogo from '../components/CompanyLogo'
 import './Experience.css'
 
 export default function Experience() {
@@ -26,16 +27,10 @@ export default function Experience() {
 
               return (
                 <Reveal className={`card experience__card ${isOpen ? 'is-open' : ''}`} key={item.id} delay={index * 0.08}>
-                  <figure className="experience__media">
-                    <img
-                      src={item.image}
-                      alt={`${item.company} — ${tr(item.role)}`}
-                      loading="lazy"
-                      width="480"
-                      height="300"
-                    />
+                  <div className="experience__media">
+                    <CompanyLogo logo={item.logo} fallback={item.company.slice(0, 4)} />
                     {item.current && <span className="experience__badge">{t('experience.current')}</span>}
-                  </figure>
+                  </div>
 
                   <div className="experience__content">
                     <span className="chip chip--green experience__type">{tr(item.type)}</span>
