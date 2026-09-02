@@ -1,0 +1,21 @@
+.social {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.social__link {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  transition: color var(--transition), background-color var(--transition), transform var(--transition);
+}
+
+.social__link:hover {
+  color: var(--green);
+  background: var(--green-soft);
+  transform: translateY(-2px);
+}

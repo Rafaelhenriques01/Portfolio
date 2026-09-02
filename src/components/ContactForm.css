@@ -1,0 +1,85 @@
+.form {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.form__title {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-2);
+}
+
+.form__field { display: grid; gap: var(--space-2); }
+
+.form__field label {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form__field input,
+.form__field textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  transition: border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.form__field textarea { resize: vertical; min-height: 130px; }
+
+.form__field input::placeholder,
+.form__field textarea::placeholder { color: var(--text-dim); }
+
+.form__field input:focus,
+.form__field textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px var(--green-soft);
+  background: var(--surface-2);
+}
+
+.form__field input.has-error,
+.form__field textarea.has-error { border-color: #ef4444; }
+
+.form__error { font-size: var(--fs-xs); color: #f87171; }
+
+.form__status:empty { display: none; }
+
+.form__message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.form__message svg { flex-shrink: 0; margin-top: 3px; }
+
+.form__message--success {
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
+  color: var(--green);
+}
+
+.form__message--error {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.form__message--error a { color: var(--green); text-decoration: underline; }
+
+@media (max-width: 560px) {
+  .form { padding: var(--space-5) var(--space-4); }
+}

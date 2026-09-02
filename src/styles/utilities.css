@@ -1,0 +1,157 @@
+/* ==========================================================================
+   CLASSES UTILITARIAS REUTILIZAVEIS
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+.container--narrow { max-width: var(--container-narrow); }
+
+.section {
+  padding-block: var(--space-9);
+}
+
+.section--tight { padding-block: var(--space-8); }
+
+.section__header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.section__title {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--space-2);
+}
+
+.section__subtitle {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.02em;
+}
+
+.text-green { color: var(--green); }
+.text-muted { color: var(--text-muted); }
+
+/* ---- Botoes ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition),
+    background-color var(--transition), border-color var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn--primary {
+  background: var(--green);
+  color: #04140a;
+  box-shadow: 0 0 0 rgba(34, 197, 94, 0);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: #2ee36a;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-green);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  border-color: var(--green);
+  color: var(--green);
+  transform: translateY(-2px);
+}
+
+.btn--outline {
+  background: var(--green-soft);
+  color: var(--green);
+  border: 1px solid var(--green-border);
+}
+
+.btn--outline:hover:not(:disabled) {
+  background: var(--green);
+  color: #04140a;
+  transform: translateY(-2px);
+}
+
+.btn--sm { padding: 0.55rem 1.1rem; font-size: var(--fs-xs); }
+.btn--block { width: 100%; }
+
+/* ---- Chips de tecnologia ---- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  transition: all var(--transition);
+}
+
+.chip--green {
+  background: var(--green-soft);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+.chip:hover { border-color: var(--green-border); color: var(--green); }
+
+/* ---- Cartoes ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  border-color: var(--green-border);
+  box-shadow: var(--shadow-md);
+}
+
+/* ---- Acessibilidade ---- */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: var(--z-toast);
+  padding: var(--space-3) var(--space-4);
+  background: var(--green);
+  color: #04140a;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: top var(--transition);
+}
+
+.skip-link:focus { top: var(--space-4); }

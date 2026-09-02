@@ -1,0 +1,14 @@
+.page {
+  flex: 1;
+  padding-top: var(--header-height);
+  width: 100%;
+}
+
+.section__rule {
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin: var(--space-4) auto 0;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+}
