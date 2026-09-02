@@ -3,8 +3,6 @@ import { HiArrowRight, HiOutlineAcademicCap, HiOutlineFlag, HiOutlineSparkles } 
 import { FaCode, FaDatabase, FaPenRuler, FaGears } from 'react-icons/fa6'
 import { useLanguage } from '../context/LanguageContext'
 import { about, profile, skills } from '../data/profile'
-import { projects, allTechnologies } from '../data/projects'
-import { experiences } from '../data/experiences'
 import PageTransition from '../components/PageTransition'
 import Reveal from '../components/Reveal'
 import './About.css'
@@ -16,23 +14,12 @@ const skillIcons = { code: FaCode, database: FaDatabase, design: FaPenRuler, too
 export default function About() {
   const { t, tr, lang } = useLanguage()
 
-  const stats = [
-    { value: projects.length, label: t('about.statsProjects') },
-    { value: experiences.length, label: t('about.statsExperiences') },
-    { value: `${allTechnologies.length}+`, label: t('about.statsTech') },
-  ]
-
   return (
     <PageTransition>
       {/* ---------------------------------------------------------- HERO */}
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero__inner container">
           <Reveal className="hero__content" direction="right">
-            <span className="hero__badge">
-              <span className="hero__badge-dot" aria-hidden="true" />
-              {t('hero.available')}
-            </span>
-
             <p className="hero__greeting">{t('hero.greeting')}</p>
             <h1 className="hero__title" id="hero-title">
               {profile.name}
@@ -70,15 +57,6 @@ export default function About() {
               }}
             />
           </Reveal>
-        </div>
-
-        <div className="hero__stats container">
-          {stats.map(({ value, label }, index) => (
-            <Reveal className="hero__stat" key={label} delay={index * 0.08}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </Reveal>
-          ))}
         </div>
       </section>
 

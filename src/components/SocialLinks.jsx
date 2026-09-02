@@ -1,5 +1,4 @@
-import { FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6'
-import { MdEmail } from 'react-icons/md'
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6'
 import { profile } from '../data/profile'
 
 /**
@@ -32,7 +31,7 @@ export const socialLinks = [
     id: 'email',
     label: 'E-mail',
     href: `mailto:${profile.email}`,
-    Icon: MdEmail,
+    Icon: FaEnvelope,
     value: profile.email,
     external: false,
   },

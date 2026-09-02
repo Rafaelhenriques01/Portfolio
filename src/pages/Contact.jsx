@@ -67,11 +67,6 @@ export default function Contact() {
                 ))}
               </ul>
 
-              <div className="contact__note card">
-                <p>
-                  {t('contact.subtitle')} — <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                </p>
-              </div>
             </Reveal>
 
             {/* ---------------- Formulario ---------------- */}

@@ -1,31 +1,3 @@
-/* =========================== FILTROS =========================== */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
-}
-
-.filters__item {
-  padding: 0.4rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  background: var(--surface);
-  color: var(--text-muted);
-  font-size: var(--fs-xs);
-  transition: all var(--transition);
-}
-
-.filters__item:hover { color: var(--text); border-color: var(--border-strong); }
-
-.filters__item.is-active {
-  background: var(--green);
-  border-color: var(--green);
-  color: #04140a;
-  font-weight: 600;
-}
-
 /* ========================= LINHA DO TEMPO ====================== */
 .timeline {
   position: relative;
@@ -128,12 +100,6 @@
 }
 
 .timeline__actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
-
-.timeline__empty {
-  text-align: center;
-  color: var(--text-muted);
-  padding-block: var(--space-8);
-}
 
 /* ========================== RESPONSIVO ========================= */
 @media (max-width: 900px) {

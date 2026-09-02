@@ -44,9 +44,8 @@ export default function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <nav className="navbar__inner container" aria-label={t('nav.menu')}>
-        <Link to="/" className="navbar__logo" aria-label={profile.shortName}>
-          <span className="navbar__logo-mark">{profile.initials}</span>
-          <span className="navbar__logo-text">{profile.shortName}</span>
+        <Link to="/" className="navbar__logo" aria-label={profile.name}>
+          <span className="navbar__logo-text">{profile.name}</span>
         </Link>
 
         <ul className={`navbar__links ${isOpen ? 'is-open' : ''}`}>

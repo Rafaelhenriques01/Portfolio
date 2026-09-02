@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { HiArrowRight } from 'react-icons/hi2'
 import { FaGithub } from 'react-icons/fa6'
 import { useLanguage } from '../context/LanguageContext'
-import { projects, allTechnologies } from '../data/projects'
+import { projects } from '../data/projects'
 import PageTransition from '../components/PageTransition'
 import SectionHeader from '../components/SectionHeader'
 import Reveal from '../components/Reveal'
@@ -11,13 +11,7 @@ import './Projects.css'
 
 export default function Projects() {
   const { t, tr } = useLanguage()
-  const [filter, setFilter] = useState('all')
   const [selected, setSelected] = useState(null)
-
-  const visibleProjects = useMemo(
-    () => (filter === 'all' ? projects : projects.filter((project) => project.tech.includes(filter))),
-    [filter],
-  )
 
   return (
     <PageTransition>
@@ -25,33 +19,10 @@ export default function Projects() {
         <div className="container">
           <SectionHeader id="projects-title" title={t('projects.title')} subtitle={t('projects.subtitle')} />
 
-          {/* -------- Filtro por tecnologia -------- */}
-          <Reveal className="filters" aria-label={t('projects.filterLabel')}>
-            <button
-              type="button"
-              className={`filters__item ${filter === 'all' ? 'is-active' : ''}`}
-              onClick={() => setFilter('all')}
-            >
-              {t('projects.filterAll')}
-            </button>
-            {allTechnologies.map((tech) => (
-              <button
-                key={tech}
-                type="button"
-                className={`filters__item ${filter === tech ? 'is-active' : ''}`}
-                onClick={() => setFilter(tech)}
-              >
-                {tech}
-              </button>
-            ))}
-          </Reveal>
 
           {/* -------- Linha do tempo -------- */}
-          {visibleProjects.length === 0 ? (
-            <p className="timeline__empty">{t('projects.empty')}</p>
-          ) : (
-            <ol className="timeline">
-              {visibleProjects.map((project, index) => (
+          <ol className="timeline">
+            {projects.map((project, index) => (
                 <li className="timeline__item" key={project.id}>
                   <span className="timeline__marker" aria-hidden="true">
                     <span className="timeline__dot" />
@@ -105,9 +76,8 @@ export default function Projects() {
                     </div>
                   </Reveal>
                 </li>
-              ))}
-            </ol>
-          )}
+            ))}
+          </ol>
         </div>
       </section>
 

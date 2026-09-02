@@ -12,35 +12,6 @@
   gap: var(--space-8);
 }
 
-.hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: 0.35rem 0.9rem;
-  margin-bottom: var(--space-5);
-  border: 1px solid var(--green-border);
-  border-radius: var(--radius-full);
-  background: var(--green-soft);
-  color: var(--green);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.03em;
-}
-
-.hero__badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 0 var(--green-glow);
-  animation: pulse 2.2s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 var(--green-glow); }
-  70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-}
-
 .hero__greeting {
   font-size: var(--fs-sm);
   color: var(--green);
@@ -115,14 +86,34 @@
   box-shadow: none;
 }
 
-/* Anel tracejado verde em volta da foto */
+/* Arco de luz verde girando lentamente em volta da foto */
 .hero__avatar-ring {
   position: absolute;
-  width: min(366px, 80vw);
+  width: min(372px, 82vw);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 2px dashed var(--green-border);
-  animation: spin 42s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(34, 197, 94, 0.05) 40deg,
+    var(--green) 150deg,
+    rgba(34, 197, 94, 0.35) 210deg,
+    transparent 300deg
+  );
+  /* Recorta o disco deixando so um anel fino */
+  -webkit-mask: radial-gradient(circle closest-side, transparent 97%, #000 97.6%);
+  mask: radial-gradient(circle closest-side, transparent 97%, #000 97.6%);
+  animation: spin 14s linear infinite;
+}
+
+/* Anel base, discreto, para dar acabamento mesmo sem o arco */
+.hero__figure::before {
+  content: '';
+  position: absolute;
+  width: min(372px, 82vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 @keyframes spin {
@@ -144,28 +135,6 @@
   50% { transform: translateY(10px) scale(1.04); }
 }
 
-/* ---- Estatisticas ---- */
-.hero__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-4);
-  margin-top: var(--space-8);
-  padding: var(--space-5);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, var(--surface), rgba(22, 22, 22, 0.4));
-}
-
-.hero__stat { text-align: center; }
-
-.hero__stat strong {
-  display: block;
-  font-family: var(--font-display);
-  font-size: var(--fs-2xl);
-  color: var(--green);
-}
-
-.hero__stat span { font-size: var(--fs-xs); color: var(--text-dim); letter-spacing: 0.06em; }
 
 /* ========================== SOBRE MIM ========================== */
 .about__grid {
@@ -278,6 +247,5 @@
 
 @media (max-width: 560px) {
   .hero { padding-block: var(--space-7) var(--space-6); }
-  .hero__stats { grid-template-columns: 1fr; gap: var(--space-5); }
   .hero__actions .btn { width: 100%; }
 }
