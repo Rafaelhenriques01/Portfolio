@@ -139,3 +139,20 @@
   .modal__body { padding: var(--space-5) var(--space-4); }
   .modal__actions .btn { width: 100%; }
 }
+
+/* Aviso de repositorio privado no lugar do botao do GitHub */
+.modal__private {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+}
+
+.modal__private svg { color: var(--text-dim); flex-shrink: 0; margin-top: 3px; }
+.modal__private strong { display: block; color: var(--text); font-weight: 600; }

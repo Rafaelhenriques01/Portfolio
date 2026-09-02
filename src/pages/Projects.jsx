@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { HiArrowRight } from 'react-icons/hi2'
+import { HiArrowRight, HiLockClosed } from 'react-icons/hi2'
 import { FaGithub } from 'react-icons/fa6'
 import { useLanguage } from '../context/LanguageContext'
 import { projects } from '../data/projects'
@@ -64,14 +64,20 @@ export default function Projects() {
                         <button type="button" className="btn btn--primary btn--sm" onClick={() => setSelected(project)}>
                           {t('projects.viewProject')} <HiArrowRight aria-hidden="true" />
                         </button>
-                        <a
-                          className="btn btn--ghost btn--sm"
-                          href={project.repo}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          <FaGithub aria-hidden="true" /> GitHub
-                        </a>
+                        {project.repo ? (
+                          <a
+                            className="btn btn--ghost btn--sm"
+                            href={project.repo}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            <FaGithub aria-hidden="true" /> GitHub
+                          </a>
+                        ) : (
+                          <span className="timeline__private">
+                            <HiLockClosed aria-hidden="true" /> {t('projects.privateRepo')}
+                          </span>
+                        )}
                       </div>
                     </div>
                   </Reveal>

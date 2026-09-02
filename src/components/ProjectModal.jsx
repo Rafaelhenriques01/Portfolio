@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { HiChevronLeft, HiChevronRight, HiXMark, HiArrowTopRightOnSquare } from 'react-icons/hi2'
+import { HiChevronLeft, HiChevronRight, HiXMark, HiArrowTopRightOnSquare, HiLockClosed } from 'react-icons/hi2'
 import { FaGithub } from 'react-icons/fa6'
 import { useLanguage } from '../context/LanguageContext'
 import './ProjectModal.css'
@@ -124,9 +124,19 @@ export default function ProjectModal({ project, onClose }) {
             </ul>
 
             <div className="modal__actions">
-              <a className="btn btn--primary btn--sm" href={project.repo} target="_blank" rel="noreferrer noopener">
-                <FaGithub aria-hidden="true" /> {t('projects.repository')}
-              </a>
+              {project.repo ? (
+                <a className="btn btn--primary btn--sm" href={project.repo} target="_blank" rel="noreferrer noopener">
+                  <FaGithub aria-hidden="true" /> {t('projects.repository')}
+                </a>
+              ) : (
+                <p className="modal__private">
+                  <HiLockClosed aria-hidden="true" />
+                  <span>
+                    <strong>{t('projects.privateRepo')}</strong>
+                    {t('projects.privateRepoNote')}
+                  </span>
+                </p>
+              )}
               {project.demo && (
                 <a className="btn btn--ghost btn--sm" href={project.demo} target="_blank" rel="noreferrer noopener">
                   <HiArrowTopRightOnSquare aria-hidden="true" /> {t('projects.liveDemo')}

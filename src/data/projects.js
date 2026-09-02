@@ -152,9 +152,11 @@ export const projects = [
       ],
     },
     tech: ['React', 'React Native (Expo)', 'TypeScript', 'Supabase', 'PostgreSQL', 'Fastify', 'Turborepo'],
-    repo: 'https://github.com/Rafaelhenriques01/ndtech-system',
+    // Sistema proprietario: o repositorio e privado, entao nao ha link publico
+    repo: null,
+    privateRepo: true,
     demo: null,
-    gallery: ['/images/ndtech-1-web.svg', '/images/ndtech-2-mobile.svg'],
+    gallery: ['/images/ndtech-logo.png'],
   },
   {
     id: 'portfolio',
