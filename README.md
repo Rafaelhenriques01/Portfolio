@@ -152,6 +152,7 @@ Portfolio/
 ├── scripts/
 │   └── recortar-foto.mjs           # Ferramenta de recorte de imagem (sem dependências)
 ├── public/
+│   ├── curriculo.pdf                # Currículo em PDF (botão "Baixar Currículo")
 │   ├── favicon.svg
 │   └── images/                     # Imagens dos projetos e logos
 │       ├── avatar.svg
@@ -310,7 +311,7 @@ mexer nos componentes:
 **Para adicionar sua foto:** salve como `public/images/avatar.jpg` e troque o `src`
 da imagem em `src/pages/About.jsx`.
 
-**Para o currículo em PDF:** salve o arquivo como `public/curriculo.pdf`.
+**Para atualizar o currículo:** substitua o arquivo `public/curriculo.pdf`.
 
 ---
 

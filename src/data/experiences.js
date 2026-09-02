@@ -75,7 +75,7 @@ export const experiences = [
         'Problem solving throughout project development',
       ],
     },
-    tech: ['Figma', 'UI/UX', 'Scrum', 'Kanban', 'Prototipagem'],
+    tech: ['Figma', 'UI/UX', 'Scrum', 'Kanban', 'Wireframes'],
     logo: {
       src: '/images/logo-comp.svg',
       alt: 'COMP — Empresa Júnior',

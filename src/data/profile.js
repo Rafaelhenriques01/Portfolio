@@ -52,9 +52,8 @@ export const profile = {
   instagramHandle: '@rafaelhenriques_22',
   figma: 'https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Untitled',
 
-  // Curriculo em PDF: salve o arquivo como /public/curriculo.pdf e descomente a
-  // linha abaixo. Enquanto estiver null, o botao 'Baixar Curriculo' fica oculto.
-  resume: null, // '/curriculo.pdf'
+  // Curriculo em PDF (public/curriculo.pdf). Com null, o botao fica oculto.
+  resume: '/curriculo.pdf',
 }
 
 export const about = {
@@ -81,8 +80,8 @@ export const about = {
     },
     school: 'Pontifícia Universidade Católica de Minas Gerais (PUC Minas)',
     period: {
-      pt: '2024 — cursando',
-      en: '2024 — in progress',
+      pt: '2025 — cursando',
+      en: '2025 — in progress',
     },
   },
   interests: {
@@ -120,18 +119,50 @@ export const skills = [
     key: 'data',
     title: { pt: 'Banco de Dados', en: 'Databases' },
     icon: 'database',
-    items: ['MySQL', 'SQL', 'Modelagem de Dados', 'CRUD', 'APIs REST', 'Relatórios'],
+    items: {
+      pt: ['MySQL', 'SQL', 'Banco de Dados Relacional', 'Modelagem de Dados', 'CRUD', 'APIs REST', 'Relatórios'],
+      en: ['MySQL', 'SQL', 'Relational Databases', 'Data Modeling', 'CRUD', 'REST APIs', 'Reports'],
+    },
   },
   {
     key: 'design',
     title: { pt: 'Design & UI/UX', en: 'Design & UI/UX' },
     icon: 'design',
-    items: ['Figma', 'Wireframes', 'Protótipos', 'Design de Interfaces', 'Responsividade', 'Acessibilidade'],
+    items: {
+      pt: ['Figma', 'Wireframes', 'Protótipos', 'Design de Interfaces', 'Responsividade', 'Acessibilidade'],
+      en: ['Figma', 'Wireframes', 'Prototypes', 'Interface Design', 'Responsiveness', 'Accessibility'],
+    },
   },
   {
     key: 'tools',
     title: { pt: 'Ferramentas & Metodologias', en: 'Tools & Methodologies' },
     icon: 'tools',
-    items: ['Git', 'GitHub', 'Scrum', 'Kanban', 'n8n', 'VS Code', 'NetBeans'],
+    items: {
+      pt: ['Git', 'GitHub', 'Scrum', 'Kanban', 'Automação com n8n', 'VS Code', 'NetBeans'],
+      en: ['Git', 'GitHub', 'Scrum', 'Kanban', 'Automation with n8n', 'VS Code', 'NetBeans'],
+    },
+  },
+  {
+    key: 'soft',
+    title: { pt: 'Habilidades Comportamentais', en: 'Soft Skills' },
+    icon: 'people',
+    items: {
+      pt: [
+        'Pensamento analítico',
+        'Resolução de problemas',
+        'Trabalho em equipe',
+        'Comunicação',
+        'Organização',
+        'Proatividade',
+      ],
+      en: [
+        'Analytical thinking',
+        'Problem solving',
+        'Teamwork',
+        'Communication',
+        'Organization',
+        'Proactivity',
+      ],
+    },
   },
 ]

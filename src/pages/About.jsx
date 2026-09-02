@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { HiArrowRight, HiOutlineAcademicCap, HiOutlineFlag, HiOutlineSparkles } from 'react-icons/hi2'
-import { FaCode, FaDatabase, FaPenRuler, FaGears } from 'react-icons/fa6'
+import { FaCode, FaDatabase, FaPenRuler, FaGears, FaUsers } from 'react-icons/fa6'
 import { useLanguage } from '../context/LanguageContext'
 import { about, profile, skills } from '../data/profile'
 import PageTransition from '../components/PageTransition'
@@ -9,10 +9,10 @@ import './About.css'
 
 const FALLBACK_AVATAR = '/images/avatar.svg'
 
-const skillIcons = { code: FaCode, database: FaDatabase, design: FaPenRuler, tools: FaGears }
+const skillIcons = { code: FaCode, database: FaDatabase, design: FaPenRuler, tools: FaGears, people: FaUsers }
 
 export default function About() {
-  const { t, tr, lang } = useLanguage()
+  const { t, tr } = useLanguage()
 
   return (
     <PageTransition>
@@ -132,10 +132,10 @@ export default function About() {
                     <span className="skills__icon">
                       <Icon size={18} aria-hidden="true" />
                     </span>
-                    <h3>{group.title[lang]}</h3>
+                    <h3>{tr(group.title)}</h3>
                   </div>
                   <ul className="skills__list">
-                    {group.items.map((item) => (
+                    {tr(group.items).map((item) => (
                       <li className="chip" key={item}>
                         {item}
                       </li>
