@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { HiBars3, HiXMark } from 'react-icons/hi2'
 import { useLanguage } from '../context/LanguageContext'
 import SocialLinks from './SocialLinks'
-import { profile } from '../data/profile'
 import './Navbar.css'
 
 const navItems = [
@@ -44,10 +43,6 @@ export default function Navbar() {
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <nav className="navbar__inner container" aria-label={t('nav.menu')}>
-        <Link to="/" className="navbar__logo" aria-label={profile.name}>
-          <span className="navbar__logo-text">{profile.name}</span>
-        </Link>
-
         <ul className={`navbar__links ${isOpen ? 'is-open' : ''}`}>
           {navItems.map(({ to, labelKey, end }) => (
             <li key={to}>
