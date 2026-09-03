@@ -83,3 +83,15 @@
 @media (max-width: 560px) {
   .form { padding: var(--space-5) var(--space-4); }
 }
+
+/* Campo-armadilha: precisa existir no HTML, mas nao pode ser visto nem focado */
+.form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

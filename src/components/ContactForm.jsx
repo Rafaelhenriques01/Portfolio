@@ -110,6 +110,16 @@ export default function ContactForm() {
     <form className="form" onSubmit={handleSubmit} noValidate>
       <h2 className="form__title">{t('contact.formTitle')}</h2>
 
+      {/*
+        Armadilha para robos de spam: invisivel e fora da ordem de tabulacao,
+        entao ninguem preenche sem ser um preenchedor automatico. O servidor
+        descarta silenciosamente qualquer envio que traga este campo.
+      */}
+      <div className="form__honeypot" aria-hidden="true">
+        <label htmlFor="website">Não preencha este campo</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       <div className="form__field">
         <label htmlFor="name">{t('contact.name')}</label>
         <input

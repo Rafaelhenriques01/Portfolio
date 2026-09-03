@@ -2,17 +2,24 @@
  * ---------------------------------------------------------------------------
  * POST /api/contact  —  Serverless Function (Vercel)
  * ---------------------------------------------------------------------------
- * Recebe os dados do formulario de contato, valida no servidor e envia o
- * e-mail atraves da API do Resend (https://resend.com — plano gratuito).
- *
- * Variaveis de ambiente necessarias (ver .env.example):
- *   RESEND_API_KEY      chave da API do Resend
- *   CONTACT_TO_EMAIL    e-mail que recebe as mensagens
- *   CONTACT_FROM_EMAIL  remetente (ex: "Portfolio <onboarding@resend.dev>")
+ * Recebe os dados do formulario de contato, valida e higieniza no servidor,
+ * limita a frequencia de envios e despacha o e-mail por SMTP (ou pelo Resend,
+ * conforme as variaveis de ambiente presentes — ver .env.example).
  */
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/
 const MAX_LENGTHS = { name: 120, email: 160, phone: 40, message: 4000 }
+
+/**
+ * Remove quebras de linha e caracteres de controle.
+ * Nome, e-mail e telefone entram no assunto e no Reply-To da mensagem; um
+ * \r\n nesses campos permitiria acrescentar cabecalhos ao e-mail (injecao de
+ * cabecalho SMTP) e alimenta o analisador de enderecos com entrada malformada.
+ */
+function limparCampo(valor) {
+  // eslint-disable-next-line no-control-regex
+  return String(valor ?? '').replace(/[\u0000-\u001f\u007f]/g, ' ').trim()
+}
 
 /** Escapa HTML para evitar injecao de marcacao no corpo do e-mail. */
 function escapeHtml(value = '') {
@@ -24,13 +31,45 @@ function escapeHtml(value = '') {
     .replace(/'/g, '&#039;')
 }
 
+/**
+ * Limite simples de envios por origem: 3 mensagens a cada 10 minutos.
+ * O registro vive na memoria da instancia; como a Vercel reaproveita instancias
+ * quentes, isso ja barra o caso comum de alguem disparar o endpoint em serie.
+ */
+const JANELA_MS = 10 * 60 * 1000
+const MAX_POR_JANELA = 3
+const historico = new Map()
+
+function excedeuLimite(origem) {
+  const agora = Date.now()
+  const anteriores = (historico.get(origem) ?? []).filter((t) => agora - t < JANELA_MS)
+
+  if (anteriores.length >= MAX_POR_JANELA) {
+    historico.set(origem, anteriores)
+    return true
+  }
+
+  anteriores.push(agora)
+  historico.set(origem, anteriores)
+
+  // Evita crescimento indefinido do mapa em instancias de vida longa
+  if (historico.size > 500) {
+    for (const [chave, marcas] of historico) {
+      if (marcas.every((t) => agora - t >= JANELA_MS)) historico.delete(chave)
+    }
+  }
+
+  return false
+}
+
 /** Valida o payload recebido do formulario. */
 export function validatePayload(body = {}) {
   const errors = []
-  const name = String(body.name ?? '').trim()
-  const email = String(body.email ?? '').trim()
-  const phone = String(body.phone ?? '').trim()
-  const message = String(body.message ?? '').trim()
+  const name = limparCampo(body.name)
+  const email = limparCampo(body.email)
+  const phone = limparCampo(body.phone)
+  // A mensagem pode ter quebras de linha: ela vai no corpo, nao em cabecalho
+  const message = String(body.message ?? '').replace(/\r\n/g, '\n').trim()
 
   if (name.length < 3) errors.push('name')
   if (!EMAIL_REGEX.test(email)) errors.push('email')
@@ -68,7 +107,31 @@ export default async function handler(request, response) {
     return response.status(405).json({ ok: false, error: 'Método não permitido.' })
   }
 
-  const body = typeof request.body === 'string' ? JSON.parse(request.body || '{}') : (request.body ?? {})
+  let body
+  try {
+    body = typeof request.body === 'string' ? JSON.parse(request.body || '{}') : (request.body ?? {})
+  } catch {
+    return response.status(400).json({ ok: false, error: 'Dados inválidos.' })
+  }
+
+  // Armadilha para robos: o campo fica escondido no formulario, entao so um
+  // preenchedor automatico o completa. Respondemos sucesso e descartamos.
+  if (typeof body.website === 'string' && body.website.trim() !== '') {
+    return response.status(200).json({ ok: true })
+  }
+
+  const origem =
+    (request.headers?.['x-forwarded-for'] ?? '').split(',')[0].trim() ||
+    request.socket?.remoteAddress ||
+    'desconhecida'
+
+  if (excedeuLimite(origem)) {
+    response.setHeader('Retry-After', '600')
+    return response
+      .status(429)
+      .json({ ok: false, error: 'Muitas mensagens enviadas. Tente novamente em alguns minutos.' })
+  }
+
   const { errors, data } = validatePayload(body)
 
   if (errors.length > 0) {
