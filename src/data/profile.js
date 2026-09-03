@@ -50,7 +50,7 @@ export const profile = {
 
   instagram: 'https://www.instagram.com/rafaelhenriques_22/',
   instagramHandle: '@rafaelhenriques_22',
-  figma: 'https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Untitled',
+  figma: 'https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Wireframes-portfolio?node-id=0-1',
 
   // Curriculo em PDF (public/curriculo.pdf). Com null, o botao fica oculto.
   resume: '/curriculo.pdf',

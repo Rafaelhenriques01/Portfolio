@@ -61,7 +61,7 @@ de contato — tudo centralizado em um único lugar, com versões em **portuguê
 Os wireframes de média fidelidade foram criados no Figma e serviram de base para a identidade
 visual do site (tema escuro, tipografia monoespaçada e verde como cor de destaque).
 
-🔗 **Arquivo no Figma:** https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Untitled
+🔗 **[Abrir os wireframes no Figma](https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Wireframes-portfolio?node-id=0-1)**
 
 | Sobre Mim | Projetos |
 | :-------: | :------: |

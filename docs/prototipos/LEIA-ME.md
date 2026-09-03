@@ -13,4 +13,4 @@ para que as imagens apareçam no README principal:
 
 **Como exportar no Figma:** selecione o frame → painel direito → *Export* → formato `PNG` → `2x` → *Export*.
 
-Link do arquivo no Figma: https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Untitled
+Link do arquivo no Figma: https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Wireframes-portfolio?node-id=0-1
