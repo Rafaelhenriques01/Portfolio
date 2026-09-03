@@ -9,15 +9,16 @@
   <img alt="React" src="https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
   <img alt="Vite" src="https://img.shields.io/badge/Vite-6-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
   <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES2022-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-  <img alt="Vercel" src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+  <a href="https://portfolio-seven-azure-44bsiq457q.vercel.app"><img alt="Site online" src="https://img.shields.io/badge/Site-Online-22c55e?style=for-the-badge&logo=vercel&logoColor=white"/></a>
 </p>
 
 ---
 
 ## 🔗 Acesso ao site publicado
 
-> **🌐 Site online:** https://SEU-PROJETO.vercel.app
-> _(substitua pelo link gerado após o deploy na Vercel — passo a passo na seção [Deploy](#-deploy-na-vercel))_
+> ### 🌐 **[portfolio-seven-azure-44bsiq457q.vercel.app](https://portfolio-seven-azure-44bsiq457q.vercel.app)**
+>
+> Hospedado na Vercel, com a Serverless Function de contato ativa.
 
 **Repositório:** https://github.com/Rafaelhenriques01/Portfolio
 
@@ -329,7 +330,7 @@ da imagem em `src/pages/About.jsx`.
 
 - [x] **Lab01S01** — Repositório com README, wireframes no Figma, protótipo do front-end, navegação e layout principal (cabeçalho, rodapé e área de conteúdo).
 - [x] **Lab01S02** — "Sobre Mim" em PT/EN, "Projetos" com timeline dinâmica, "Experiências" com dados organizados, "Contato" com ícones e formulário funcional, validações e responsividade.
-- [x] **Lab01S03** — Deploy na nuvem, ajustes visuais e de usabilidade, imagens dos projetos e README final.
+- [x] **Lab01S03** — Deploy na nuvem (https://portfolio-seven-azure-44bsiq457q.vercel.app), ajustes visuais e de usabilidade, imagens dos projetos e README final.
 
 ---
 
