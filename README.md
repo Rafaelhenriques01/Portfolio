@@ -63,17 +63,6 @@ visual do site (tema escuro, tipografia monoespaçada e verde como cor de destaq
 
 🔗 **[Abrir os wireframes no Figma](https://www.figma.com/design/e4Malif4A6em6Vo9LXrWvZ/Wireframes-portfolio?node-id=0-1)**
 
-| Sobre Mim | Projetos |
-| :-------: | :------: |
-| ![Protótipo Sobre Mim](docs/prototipos/01-sobre-mim.png) | ![Protótipo Projetos](docs/prototipos/02-projetos.png) |
-
-| Detalhe do Projeto | Experiências | Contato |
-| :----------------: | :----------: | :-----: |
-| ![Protótipo Detalhe](docs/prototipos/03-projeto-detalhe.png) | ![Protótipo Experiências](docs/prototipos/04-experiencias.png) | ![Protótipo Contato](docs/prototipos/05-contato.png) |
-
-> 📎 As imagens acima devem ser exportadas do Figma para `docs/prototipos/`.
-> Veja as instruções em [`docs/prototipos/LEIA-ME.md`](docs/prototipos/LEIA-ME.md).
-
 ---
 
 ## 🛠️ Tecnologias utilizadas
